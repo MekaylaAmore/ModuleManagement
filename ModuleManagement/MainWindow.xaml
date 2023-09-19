@@ -1,0 +1,95 @@
+﻿<Window x:Class="ModuleManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Module Management" Height="550" Width="480">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="109*"/>
+        </Grid.RowDefinitions>
+        <!-- Login Grid -->
+        <Grid x:Name="Login" Visibility="Collapsed" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="LOGIN PAGE:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.678,-0.32" Width="133" Foreground="#FF1493" Margin="160,96,0,0"/>
+            <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Click="btnLogin_Click" Background="#FF1493" Foreground="White" Grid.Row="3" Margin="151,83,0,0"/>
+            <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="156,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="161,238,0,0" VerticalAlignment="Top" Width="161"/>
+            <Label Content="Username:" HorizontalAlignment="Left" Margin="50,180,0,0" VerticalAlignment="Top" Foreground="#FF1493"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="50,237,0,0" VerticalAlignment="Top" Foreground="#FF1493"/>
+        </Grid>
+
+        <!-- Module Details Grid -->
+        <Grid x:Name="ModuleDetails" Visibility="Collapsed" Margin="3,21,-3,25" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Module Management:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.678,-0.32" Width="227" FontSize="20" Foreground="#FF1493" Margin="123,-2,0,0"/>
+            <Label Content="Module Code:" HorizontalAlignment="Left" Margin="50,78,0,0" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="txtModCode" HorizontalAlignment="Left" Margin="262,78,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Module Name:" HorizontalAlignment="Left" Margin="50,115,0,0" VerticalAlignment="Top" Width="100"/>
+            <TextBox x:Name="txtModuleName" HorizontalAlignment="Left" Margin="262,115,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Number of credits:" HorizontalAlignment="Left" Margin="50,150,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtCredits" HorizontalAlignment="Left" Margin="262,150,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Class hours per week:" HorizontalAlignment="Left" Margin="50,185,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtClassHours" HorizontalAlignment="Left" Margin="262,185,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Number of weeks:" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtNumWeeks" HorizontalAlignment="Left" Margin="262,220,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Start Date:" HorizontalAlignment="Left" Margin="50,255,0,0" VerticalAlignment="Top" Width="120"/>
+            <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="262,255,0,0" VerticalAlignment="Top" Width="120" Background="#FF1493"/>
+            <Button Content="Save" HorizontalAlignment="Left" Margin="78,53,0,0" VerticalAlignment="Top" Width="312" Click="btnSave_Click" Background="#FF69B4" Foreground="White" Grid.Row="10"/>
+            <Button Content="Proceed to Displayed Modules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="212,122,0,0" Click="btnProceedToModules_Click" Background="#FF1493" Foreground="White" Grid.Row="10"/>
+            <!-- Back button to return to login -->
+            <Button Content="Return to Login" HorizontalAlignment="Left" Width="120" Margin="56,123,0,0" Click="btnBackToLogin_Click" Grid.Row="10"/>
+
+        </Grid>
+
+        <!-- Display Grid -->
+        <Grid x:Name="Display" Visibility="Visible" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="Display Modules Page:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.678,-0.32" Width="245" Foreground="#FF1493" Margin="129,6,0,0"/>
+
+            <ListBox x:Name="display" Margin="30,57,177,102" Grid.Row="0" />
+
+            <!-- New UI elements for recording hours worked -->
+            <Label Content="Enter Date Worked:" HorizontalAlignment="Left" Margin="319,84,0,0" VerticalAlignment="Top" Width="120"/>
+            <DatePicker x:Name="dpDateWorked" HorizontalAlignment="Left" Margin="318,121,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Enter Hours Worked:" HorizontalAlignment="Left" Margin="319,183,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtHoursWorked" HorizontalAlignment="Left" Margin="319,224,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button Content="Save" HorizontalAlignment="Left" Margin="320,284,0,0" VerticalAlignment="Top" Width="119" Click="btnRecordHours_Click" Background="#FF69B4" Foreground="White"/>
+            <!-- Back button to return to modules -->
+            <Button Content="Return to Modules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="59,463,0,0" Click="btnBackToModules_Click"/>
+            <Button Content="Proceed to Remaining Hours" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Click="btnShowRemainingHours_Click" Margin="253,464,0,0" Background="#FF1493" Foreground="White"/>
+
+        </Grid>
+
+        <!-- Remaining Self-Study Hours Grid -->
+        <Grid x:Name="RemainingHoursGrid" Visibility="Collapsed" Grid.RowSpan="2">
+            <ListBox x:Name="RemainingHoursListBox" Margin="30,66,42,171" Grid.Row="0" />
+            <!-- Add labels or text blocks here to display remaining hours -->
+            <Label Content="Remaining Hours Page:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.678,-0.32" Width="245" Foreground="#FF1493" Margin="129,6,0,0"/>
+
+            <Button Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="BtnExit_Click" Background="#FF1493" Foreground="White" Margin="274,463,0,0"/>
+            <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="btnBackToPrevious_Click" Margin="67,463,0,0"/>
+
+        </Grid>
+    </Grid>
+</Window>
